@@ -1,4 +1,4 @@
-import 'package:blind_date/pages/home_page.dart';
+import 'package:blind_date/pages/tab/home_page.dart';
 import 'package:blind_date/pages/info_input_page.dart';
 import 'package:blind_date/pages/splash_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -8,11 +8,15 @@ import 'package:flutter_web_frame/flutter_web_frame.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get_storage/get_storage.dart';
 
+import 'controllers/splash_controller.dart';
 import 'firebase_options.dart';
 import 'locale/messages.dart';
 
 Future<void> main() async {
+  await GetStorage.init();
+  Get.put(SplashController());
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -31,7 +35,7 @@ class MyApp extends StatelessWidget {
       locale: Get.deviceLocale,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
-        useMaterial3: true,
+        useMaterial3: false,
         pageTransitionsTheme: PageTransitionsTheme(builders: {
           TargetPlatform.android: CupertinoPageTransitionsBuilder(),
           TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
@@ -54,12 +58,8 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       getPages: [
         GetPage(name: '/', page: () => SplashPage()),
-        GetPage(name: '/input', page: () => InfoInputPage()),
-        GetPage(
-            name: '/home',
-            page: () => HomePage(),
-            transition: Transition.zoom
-        ),
+        GetPage(name: '/input', page: () => ProfileInputPage()),
+        GetPage(name: '/home', page: () => HomePage()),
       ],
     );
   }

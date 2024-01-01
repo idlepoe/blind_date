@@ -4,8 +4,11 @@ part 'app_user.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class AppUser{
+  @JsonKey(defaultValue: "")
   String name;
+  @JsonKey(defaultValue: "")
   String sex;
+  @JsonKey(defaultValue: "")
   String pictureUrl;
 
   AppUser(this.name, this.sex, this.pictureUrl);
@@ -14,4 +17,8 @@ class AppUser{
 
   Map<String, dynamic> toJson() => _$AppUserToJson(this);
 
+  @override
+  String toString() {
+    return 'AppUser{name: $name, sex: $sex, pictureUrl: $pictureUrl}';
+  }
 }

@@ -1,20 +1,24 @@
 import 'package:blind_date/components/app_button.dart';
 import 'package:blind_date/components/app_drop_down.dart';
 import 'package:blind_date/components/app_label_text_field.dart';
+import 'package:blind_date/utils/fire_auth.dart';
+import 'package:blind_date/utils/fire_store.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../controllers/home_controller.dart';
+import '../models/app_user.dart';
 import '../utils/logger.dart';
 
-class InfoInputPage extends StatefulWidget {
-  const InfoInputPage({super.key});
+class ProfileInputPage extends StatefulWidget {
+  const ProfileInputPage({super.key});
 
   @override
-  State<InfoInputPage> createState() => _InfoInputPageState();
+  State<ProfileInputPage> createState() => _ProfileInputPageState();
 }
 
-class _InfoInputPageState extends State<InfoInputPage> {
+class _ProfileInputPageState extends State<ProfileInputPage> {
   TextEditingController _edtName = TextEditingController();
   String _txtSex = "male";
 
@@ -40,9 +44,11 @@ class _InfoInputPageState extends State<InfoInputPage> {
       bottomSheet: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          appButton("confirm".tr, () {
-            logger.i("confirm");
-          }),
+          appButton("confirm".tr, () async {
+            AppUser target = AppUser(_edtName.text, _txtSex, "");
+            await FireStore.updateProfile(target);
+            await Get.offAndToNamed("/home");
+          }, isDisabled: _edtName.text.isEmpty),
           SizedBox(height: 10),
         ],
       ),
