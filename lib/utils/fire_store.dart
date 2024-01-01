@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:logger/logger.dart';
 
-import '../models/app_user.dart';
+import '../models/profile.dart';
 import 'logger.dart';
 
 class FireStore {
@@ -23,7 +23,7 @@ class FireStore {
     return true;
   }
 
-  static Future<bool> updateProfile(AppUser appUser) async {
+  static Future<bool> updateProfile(Profile appUser) async {
     var logger = Logger();
     try {        logger.i("updateProfile 11111111111");
 
@@ -43,10 +43,10 @@ class FireStore {
     return true;
   }
 
-  static Future<AppUser> getMyProfile() async {
+  static Future<Profile> getMyProfile() async {
     String uid = fireUser!.uid;
     logger.d("uid:" + uid);
-    AppUser result = AppUser.fromJson({});
+    Profile result = Profile.fromJson({});
     try {
       DocumentSnapshot<Object?> docSnapshot =
           await FirebaseFirestore.instance.collection("users").doc(uid).get();
@@ -55,7 +55,7 @@ class FireStore {
         Map<String, dynamic>? data =
             docSnapshot.data() as Map<String, dynamic>?;
         logger.i(data);
-        result = AppUser.fromJson(data!);
+        result = Profile.fromJson(data!);
       }
     } catch (e) {
       logger.e(e);

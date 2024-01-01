@@ -1,3 +1,4 @@
+import 'package:blind_date/components/app_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,15 @@ class TabApprovePage extends StatefulWidget {
 class _TabApprovePageState extends State<TabApprovePage> {
   @override
   Widget build(BuildContext context) {
-    return Text(this.runtimeType.toString());
-
+    return Center(
+      child: Column(
+        children: [
+          Text("no_approve_target_msg_1"),
+          Text("no_approve_target_msg_2"),
+          Expanded(child: SizedBox()),
+          appButton("invite_friend", () {})
+        ],
+      ),
+    );
   }
 }

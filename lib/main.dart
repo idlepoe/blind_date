@@ -1,5 +1,5 @@
 import 'package:blind_date/pages/tab/home_page.dart';
-import 'package:blind_date/pages/info_input_page.dart';
+import 'package:blind_date/pages/profile_input_page.dart';
 import 'package:blind_date/pages/splash_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';

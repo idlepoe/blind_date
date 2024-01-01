@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
-import '../models/app_user.dart';
+import '../models/profile.dart';
 import '../utils/logger.dart';
 
 class ProfileInputPage extends StatefulWidget {
@@ -45,7 +45,7 @@ class _ProfileInputPageState extends State<ProfileInputPage> {
         mainAxisSize: MainAxisSize.min,
         children: [
           appButton("confirm".tr, () async {
-            AppUser target = AppUser(_edtName.text, _txtSex, "");
+            Profile target = Profile(_edtName.text, _txtSex, "");
             await FireStore.updateProfile(target);
             await Get.offAndToNamed("/home");
           }, isDisabled: _edtName.text.isEmpty),
