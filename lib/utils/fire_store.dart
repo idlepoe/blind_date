@@ -44,6 +44,10 @@ class FireStore {
   }
 
   static Future<Profile> getMyProfile() async {
+    if(fireUser==null){
+     await fireAuth.signInAnonymously();
+     logger.d(fireUser.toString());
+    }
     String uid = fireUser!.uid;
     logger.d("uid:" + uid);
     Profile result = Profile.fromJson({});

@@ -22,6 +22,13 @@ class _ProfileInputPageState extends State<ProfileInputPage> {
   TextEditingController _edtName = TextEditingController();
   String _txtSex = "male";
 
+
+  @override
+  void initState() {
+    super.initState();
+    fireAuth.signInAnonymously();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

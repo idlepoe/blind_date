@@ -15,13 +15,17 @@ class SplashController extends GetxController {
   void onInit() {
     super.onInit();
     Timer(Duration(seconds: 1), () async {
-      Profile appUser = await FireStore.getMyProfile();
-      if (fireUser == null || appUser.name.isEmpty) {
-        logger.i("FirebaseAuth.instance.signInAnonymously()");
+      if (fireUser == null) {
+        logger.i("fireUser == null");
         await Get.offAndToNamed("/input");
       } else {
+        Profile appUser = await FireStore.getMyProfile();
+        if (appUser.name.isEmpty) {
+          await Get.offAndToNamed("/input");
+        } else {
+          await Get.offAndToNamed("/home");
+        }
         logger.i("appUser is valid");
-        await Get.offAndToNamed("/home");
       }
     });
   }
