@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "591749575754",
+    "project_id": "bblind-date",
+    "storage_bucket": "bblind-date.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591749575754:android:b45cccbf6992de833862b3",
+        "android_client_info": {
+          "package_name": "com.lee_blind_date.blind_date"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWB4uBmRQ5ihspOp_QM6ZbHo8b_yPwlWY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

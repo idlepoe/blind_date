@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBXMhjg3_yN9qRHim7fpNOTryHQkoyQXM0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>591749575754</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.leeblinddate.blindDate</string>
+	<key>PROJECT_ID</key>
+	<string>bblind-date</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bblind-date.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:591749575754:ios:ba457e9cd96630ae3862b3</string>
+</dict>
+</plist>
